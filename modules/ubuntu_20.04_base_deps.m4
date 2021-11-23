@@ -15,7 +15,6 @@ RUN apt-get update && \
     libtool \
     automake \
     libgcrypt20-dev \
-    libssl-dev \
     autoconf \
     gnulib \
     wget \
@@ -26,7 +25,6 @@ RUN apt-get update && \
     clang-tools-10 \
     pandoc \
     lcov \
-    libcurl4-openssl-dev \
     dbus-x11 \
     vim-common \
     libsqlite3-dev \

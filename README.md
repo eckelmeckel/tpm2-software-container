@@ -14,7 +14,7 @@ within the `tpm2-software-container` directory. For example:
 make
 
 # Build Ubuntu 20.04 image using Docker
-docker build -f ./ubuntu-20.04.docker
+docker build -f ./ubuntu-20.04.docker .
 
 # Build Fedora 32 image using Podman, squashing all intermediate layers together
 podman build --squash -f ./fedora-32.docker

@@ -1,0 +1,24 @@
+diff -Naur a/src/makefile b/src/makefile
+--- a/src/makefile	2019-12-19 23:35:43.000000000 +0100
++++ b/src/makefile	2021-11-22 14:55:36.674724457 +0100
+@@ -42,7 +42,7 @@
+ 
+ CCFLAGS = -Wall  			\
+ 	-Wmissing-declarations -Wmissing-prototypes -Wnested-externs \
+-	-Werror -Wsign-compare \
++	-Wsign-compare \
+ 	 -c -ggdb -O0 			\
+ 	-DTPM_POSIX			\
+ 	-D_POSIX_			\
+diff -Naur a/src/TpmToOsslMath.h b/src/TpmToOsslMath.h
+--- a/src/TpmToOsslMath.h	2021-01-23 00:14:01.000000000 +0100
++++ b/src/TpmToOsslMath.h	2021-11-22 14:55:57.294626171 +0100
+@@ -73,7 +73,7 @@
+ 
+ #define SYMMETRIC_ALIGNMENT RADIX_BYTES
+ 
+-#if OPENSSL_VERSION_NUMBER >= 0x10200000L
++#if OPENSSL_VERSION_NUMBER >= 0x30200000L
+ // Check the bignum_st definition in crypto/bn/bn_lcl.h and either update the
+ // version check or provide the new definition for this version.
+ #   error Untested OpenSSL version

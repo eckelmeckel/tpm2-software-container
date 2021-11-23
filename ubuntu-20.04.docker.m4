@@ -1,6 +1,7 @@
 FROM ubuntu:20.04
 
 include(`ubuntu_20.04_base_deps.m4')
+include(`ubuntu_20.04_openssl_curl.m4')
 
 include(`pip3.m4')
 

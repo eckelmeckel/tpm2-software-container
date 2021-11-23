@@ -1,6 +1,7 @@
 FROM arm64v8/ubuntu:20.04
 
 include(`ubuntu_20.04_base_deps.m4')
+include(`ubuntu_20.04_openssl_curl.m4')
 include(`pip3.m4')
 
 RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-10 100
