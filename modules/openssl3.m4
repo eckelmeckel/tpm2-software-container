@@ -1,9 +1,12 @@
-ARG openssl_version=openssl-3.0
-ENV LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
-RUN git clone --depth=1 -b "$openssl_version" 'https://github.com/openssl/openssl.git' /tmp/openssl \
-	&& cd /tmp/openssl \
-	&& ./config \
+ARG OSSL_VERSION=3.0.0
+
+## fetch and install OpenSSL 3
+RUN wget --no-verbose -O "/tmp/openssl-${OSSL_VERSION}.tar.gz" "https://www.openssl.org/source/openssl-${OSSL_VERSION}.tar.gz"
+RUN tar -zxf "/tmp/openssl-${OSSL_VERSION}.tar.gz" --one-top-level=/tmp/
+WORKDIR "/tmp/openssl-${OSSL_VERSION}"
+RUN ./config \
 	&& make -j"$(nproc)" \
 	&& make install \
 	&& ldconfig
-RUN rm -fr /tmp/openssl
+#RUN rm -rfv "/tmp/openssl-${OSSL_VERSION}"
+
